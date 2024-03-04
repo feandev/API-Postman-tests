@@ -4,4 +4,4 @@ This is my API testing project. I used Postman test collections and Lord of The 
 
 ## Links
 
-API - https://the-one-api.dev/v2
+API - https://the-one-api.dev
