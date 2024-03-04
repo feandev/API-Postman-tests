@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "a2bdfb10-0708-4471-9f08-31c173772fa1",
+		"name": "LOTR project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET movie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "27d1f07f-4b66-46c0-abc4-bd2b28e01e2f",
+						"exec": [
+							"let responseDocs;\r",
+							"\r",
+							"pm.test(\"Verify status code\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    responseDocs = pm.response.json().docs[0];\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verify name\", () => {\r",
+							"    pm.expect(responseDocs.name).to.be.a('string').and.to.eql(pm.collectionVariables.get(\"movieName\"));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify movie score\", () => {\r",
+							"    pm.expect(responseDocs.rottenTomatoesScore).to.be.a('number').and.to.eql(parseInt(pm.collectionVariables.get(\"movieScore\")));\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "64067d58-2298-4656-9950-606d204698e0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseURL}}/movie/{{movieID}}"
+			},
+			"response": []
+		},
+		{
+			"name": "GET character",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36495214-cb0c-4530-a75b-8d30448c05d0",
+						"exec": [
+							"let responseDocs;\r",
+							"\r",
+							"pm.test(\"Verify status code\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    responseDocs = pm.response.json().docs[0];\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verify realm\", () => {\r",
+							"    pm.expect(responseDocs.realm).to.be.empty\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verify character name\", () => {\r",
+							"    pm.expect(responseDocs.name).to.be.eql(pm.collectionVariables.get(\"characterName\"));\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "03d0d25e-6ba5-4eb3-89da-dc2680c912d2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseURL}}/character/{{characterID}}"
+			},
+			"response": []
+		},
+		{
+			"name": "GET character quote",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3a1caa68-1d74-415c-9641-629c69796166",
+						"exec": [
+							"let responseDocs;\r",
+							"\r",
+							"pm.test(\"Verify status code\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    responseDocs = pm.response.json().docs;\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verify character quote\", () => {\r",
+							"   let found = responseDocs.find((element) => element.character === pm.collectionVariables.get(\"characterID\"));\r",
+							"   pm.expect(found.dialog).to.be.a(\"string\").and.to.eql(pm.collectionVariables.get('quote'));\r",
+							"}) "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "cff9c8fc-dfc8-47f5-971b-8c5a87614d41",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseURL}}/movie/{{movieID}}/quote"
+			},
+			"response": []
+		},
+		{
+			"name": "Show all movies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ac5e8997-8226-4177-a5e5-818f6d5b5672",
+						"exec": [
+							"pm.test(\"Verify status code\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verify movies number\", () => {\r",
+							"    pm.expect(pm.response.json().total).to.eql(pm.collectionVariables.get(\"numberOfMovies\"));\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "545c6b96-1fff-4dc7-9ecd-3277aa4c3b56",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseURL}}/movie"
+			},
+			"response": []
+		},
+		{
+			"name": "Show all hobbits",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "455f3103-d2fd-440f-a9f1-ba791e5b3fa8",
+						"exec": [
+							"let responseDocs;\r",
+							"\r",
+							"pm.test(\"Verify status code\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    responseDocs = pm.response.json().docs;\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verify race\", () => {\r",
+							"    responseDocs.map(item => {\r",
+							"        pm.expect(item.race).to.be.a(\"string\").and.to.be.eql(pm.collectionVariables.get(\"race\"));\r",
+							"    })\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verify wikiUrl\", () => {\r",
+							"    responseDocs.map(item => {\r",
+							"        pm.expect(item.wikiUrl).to.be.a(\"string\").and.not.be.empty;\r",
+							"    })\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "f2b37a4e-f213-4b3c-90ec-7e532252ec35",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/character?race={{race}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"character"
+					],
+					"query": [
+						{
+							"key": "race",
+							"value": "{{race}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show all characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "73148ad3-4fbd-46ce-8aac-8d2331c6df8b",
+						"exec": [
+							"let responseDocs;\r",
+							"\r",
+							"pm.test(\"Verify status code\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    responseDocs = pm.response.json().docs;\r",
+							"})\r",
+							"\r",
+							"// pm.test(\"Check values\", () => {\r",
+							"//     responseDocs.map(item => {\r",
+							"//         pm.expect(item.id).to.not.eql(null);\r",
+							"//         pm.expect(item.race).to.not.eql(\"NaN\");\r",
+							"//     })\r",
+							"// })\r",
+							"\r",
+							"pm.test(\"Check total items\",  () => {\r",
+							"    console.log(pm.response.json().total)\r",
+							"    \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "77155a50-35e9-426a-ae8c-5337e81aac91",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseURL}}/character"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "08U-ycm-2385TW_2LwCp"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ecf1a38f-603b-4294-aebb-3a6b4c007059",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4ac92667-eab4-4437-a236-f35e2ca4eaf4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "movieID",
+			"value": "5cd95395de30eff6ebccde5c",
+			"type": "string"
+		},
+		{
+			"key": "characterID",
+			"value": "5cd99d4bde30eff6ebccfe2e",
+			"type": "string"
+		},
+		{
+			"key": "characterName",
+			"value": "Peregrin Took",
+			"type": "string"
+		},
+		{
+			"key": "race",
+			"value": "Hobbit",
+			"type": "string"
+		},
+		{
+			"key": "quote",
+			"value": "Can I have some bacon?",
+			"type": "string"
+		},
+		{
+			"key": "movieName",
+			"value": "The Fellowship of the Ring",
+			"type": "string"
+		},
+		{
+			"key": "movieScore",
+			"value": "91",
+			"type": "string"
+		},
+		{
+			"key": "numberOfMovies",
+			"value": "8",
+			"type": "string"
+		}
+	]
+}
