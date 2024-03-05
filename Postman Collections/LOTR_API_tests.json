@@ -257,7 +257,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "ecf1a38f-603b-4294-aebb-3a6b4c007059",
+				"id": "0e2cfb88-b934-4cb6-bbf5-e0aafbd592a6",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -267,7 +267,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "4ac92667-eab4-4437-a236-f35e2ca4eaf4",
+				"id": "1d3a4453-900d-4f20-80a7-84e30a2aa3f7",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -276,6 +276,11 @@
 		}
 	],
 	"variable": [
+		{
+			"key": "baseURL",
+			"value": "https://the-one-api.dev/v2",
+			"type": "string"
+		},
 		{
 			"key": "movieID",
 			"value": "5cd95395de30eff6ebccde5c",
