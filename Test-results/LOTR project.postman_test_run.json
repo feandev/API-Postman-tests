@@ -1,0 +1,262 @@
+{
+	"id": "32bce190-d72d-45da-95ca-560a212f0bab",
+	"name": "LOTR project",
+	"timestamp": "2024-03-05T10:10:17.520Z",
+	"collection_id": "32372350-a2bdfb10-0708-4471-9f08-31c173772fa1",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 14,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-03-05T10:10:16.145Z",
+	"totalFail": 1,
+	"results": [
+		{
+			"id": "64067d58-2298-4656-9950-606d204698e0",
+			"name": "GET movie",
+			"url": "https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5c",
+			"time": 118,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Verify status code": true,
+				"Verify name": true,
+				"Verify movie score": true
+			},
+			"testPassFailCounts": {
+				"Verify status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify movie score": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				118
+			],
+			"allTests": [
+				{
+					"Verify status code": true,
+					"Verify name": true,
+					"Verify movie score": true
+				}
+			]
+		},
+		{
+			"id": "03d0d25e-6ba5-4eb3-89da-dc2680c912d2",
+			"name": "GET character",
+			"url": "https://the-one-api.dev/v2/character/5cd99d4bde30eff6ebccfe2e",
+			"time": 61,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Verify status code": true,
+				"Verify realm": true,
+				"Verify character name": true
+			},
+			"testPassFailCounts": {
+				"Verify status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify realm": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify character name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				61
+			],
+			"allTests": [
+				{
+					"Verify status code": true,
+					"Verify realm": true,
+					"Verify character name": true
+				}
+			]
+		},
+		{
+			"id": "cff9c8fc-dfc8-47f5-971b-8c5a87614d41",
+			"name": "GET character quote",
+			"url": "https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5c/quote",
+			"time": 193,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Verify status code": true,
+				"Verify character quote": true
+			},
+			"testPassFailCounts": {
+				"Verify status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify character quote": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				193
+			],
+			"allTests": [
+				{
+					"Verify status code": true,
+					"Verify character quote": true
+				}
+			]
+		},
+		{
+			"id": "545c6b96-1fff-4dc7-9ecd-3277aa4c3b56",
+			"name": "Show all movies",
+			"url": "https://the-one-api.dev/v2/movie",
+			"time": 56,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Verify status code": true,
+				"Verify movies number": true
+			},
+			"testPassFailCounts": {
+				"Verify status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify movies number": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				56
+			],
+			"allTests": [
+				{
+					"Verify status code": true,
+					"Verify movies number": true
+				}
+			]
+		},
+		{
+			"id": "f2b37a4e-f213-4b3c-90ec-7e532252ec35",
+			"name": "Show all hobbits",
+			"url": "https://the-one-api.dev/v2/character?race=Hobbit",
+			"time": 83,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Verify status code": true,
+				"Verify race": true,
+				"Verify wikiUrl": false
+			},
+			"testPassFailCounts": {
+				"Verify status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify race": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify wikiUrl": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				83
+			],
+			"allTests": [
+				{
+					"Verify status code": true,
+					"Verify race": true,
+					"Verify wikiUrl": false
+				}
+			]
+		},
+		{
+			"id": "77155a50-35e9-426a-ae8c-5337e81aac91",
+			"name": "Show all characters",
+			"url": "https://the-one-api.dev/v2/character",
+			"time": 201,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Verify status code": true,
+				"Check values": true
+			},
+			"testPassFailCounts": {
+				"Verify status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check values": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				201
+			],
+			"allTests": [
+				{
+					"Verify status code": true,
+					"Check values": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 712,
+	"collection": {
+		"requests": [
+			{
+				"id": "64067d58-2298-4656-9950-606d204698e0",
+				"method": "GET"
+			},
+			{
+				"id": "03d0d25e-6ba5-4eb3-89da-dc2680c912d2",
+				"method": "GET"
+			},
+			{
+				"id": "cff9c8fc-dfc8-47f5-971b-8c5a87614d41",
+				"method": "GET"
+			},
+			{
+				"id": "545c6b96-1fff-4dc7-9ecd-3277aa4c3b56",
+				"method": "GET"
+			},
+			{
+				"id": "f2b37a4e-f213-4b3c-90ec-7e532252ec35",
+				"method": "GET"
+			},
+			{
+				"id": "77155a50-35e9-426a-ae8c-5337e81aac91",
+				"method": "GET"
+			}
+		]
+	}
+}
