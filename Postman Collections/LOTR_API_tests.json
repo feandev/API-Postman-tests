@@ -129,7 +129,7 @@
 							"})\r",
 							"\r",
 							"pm.test(\"Verify movies number\", () => {\r",
-							"    pm.expect(pm.response.json().total).to.eql(pm.collectionVariables.get(\"numberOfMovies\"));\r",
+							"    pm.expect(pm.response.json().total).to.eql(parseInt(pm.collectionVariables.get(\"numberOfMovies\")));\r",
 							"})"
 						],
 						"type": "text/javascript"
@@ -210,7 +210,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "73148ad3-4fbd-46ce-8aac-8d2331c6df8b",
+						"id": "a1ec81b0-6e60-4260-8b8b-c1f3afa5b5c1",
 						"exec": [
 							"let responseDocs;\r",
 							"\r",
@@ -219,17 +219,13 @@
 							"    responseDocs = pm.response.json().docs;\r",
 							"})\r",
 							"\r",
-							"// pm.test(\"Check values\", () => {\r",
-							"//     responseDocs.map(item => {\r",
-							"//         pm.expect(item.id).to.not.eql(null);\r",
-							"//         pm.expect(item.race).to.not.eql(\"NaN\");\r",
-							"//     })\r",
-							"// })\r",
+							"pm.test(\"Check values\", () => {\r",
+							"    responseDocs.map(item => {\r",
+							"        pm.expect(item.id).to.not.eql(null);\r",
+							"    })\r",
+							"})\r",
 							"\r",
-							"pm.test(\"Check total items\",  () => {\r",
-							"    console.log(pm.response.json().total)\r",
-							"    \r",
-							"})"
+							""
 						],
 						"type": "text/javascript"
 					}
