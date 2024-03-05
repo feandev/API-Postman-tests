@@ -8,7 +8,7 @@ API - https://the-one-api.dev
 
 ## How to run
 
-Import test collection to your Postman :postal_horn:
+Import test collection to your Postman and run tests :postal_horn:
 
 ## Tests
 
